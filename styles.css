@@ -1,0 +1,55 @@
+/* Fondo general estilo cartoon */
+body {
+    background: #f5a535; /* azul suave cartoon */
+    font-family: 'Fredoka One', sans-serif;
+    margin: 0;
+}
+
+/* HEADER */
+.site-header {
+    background: #8E4FFF;
+    border-radius: 0 0 35px 35px;
+    padding: 15px 40px;
+    margin: 0 auto;
+    width: 70%;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Contenedor interno del header */
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo ajustado */
+.logo {
+    height: 90px; 
+    image-rendering: crisp-edges;
+}
+
+/* NAV */
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #ffffff; /* morado estilo Fanboy */
+    transition: 0.2s;
+    font-weight: bold;
+}
+
+/* Hover tipo cartoon */
+.main-nav a:hover {
+    color: #E0FF4F; /* verde radiactivo */
+    transform: scale(1.1);
+}
