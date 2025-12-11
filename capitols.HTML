@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Fanboy y ChumChum</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <section class="hero-contacet">
+            <img src="content/episodios.jpeg" alt="Foto de fondo">
+        </section>
+        <header class="site-header">
+            <div class="header-inner">
+                <img src="content/image-removebg-preview.png" alt="Fanboy & Chumchum Logo" class="logo">
+                <nav class="main-nav">
+                <ul>
+                    <li><a href="main.html">HOME</a></li>
+                    <li><a href="capitols.HTML">EPISODIOS</a></li>
+                    <li><a href="personajes.html">PERSONAJES</a></li>
+                    <li><a href="#">JUEGOS</a></li>
+                    <li><a href="#">PRODUCTOS</a></li>
+                    <li><a href="contacte.html">CONTACTO</a></li>
+                </ul>
+                </nav>
+            </div>
+        </header>
+     <div class="container">
+        <!-- Título principal -->
+        <h2 class="title">Capítulo de la semana</h2>
+
+        <!-- Contenedor central para el video destacado -->
+        <div class="featured-video-container">
+            <div class="featured-video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/8XE_DMV36ZA?si=vM80p41vE7dXacE-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- Sección de episodios anteriores (como un mostrador) -->
+        <h3>Otros episodios</h3>
+        <div class="episode-showcase">
+            <!-- Episodio 1 -->
+            <div class="episode-card" data-video="https://www.youtube.com/embed/TUYZz67M6Kk">
+                <div class="episode-thumbnail">
+                    <img src="https://img.youtube.com/vi/TUYZz67M6Kk/maxresdefault.jpg" alt="Episodio 1">
+                </div>
+                <h3>Título del Episodio 1</h3>
+            </div>
+            <!-- Episodio 2 -->
+            <div class="episode-card" data-video="https://www.youtube.com/embed/TUYZz67M6Kk">
+                <div class="episode-thumbnail">
+                    <img src="https://img.youtube.com/vi/TUYZz67M6Kk/maxresdefault.jpg" alt="Episodio 2">
+                </div>
+                <h3>Título del Episodio 2</h3>
+            </div>
+            <!-- Episodio 3 -->
+            <div class="episode-card" data-video="https://www.youtube.com/embed/TUYZz67M6Kk">
+                <div class="episode-thumbnail">
+                    <img src="https://img.youtube.com/vi/TUYZz67M6Kk/maxresdefault.jpg" alt="Episodio 3">
+                </div>
+                <h3>Título del Episodio 3</h3>
+            </div>
+            <!-- Agregar más episodios según sea necesario -->
+        </div>
+    </div>
+
+    <script>
+        // Script para manejar el clic en la portada y reemplazarlo por el video
+        const episodeCards = document.querySelectorAll('.episode-card');
+        
+        episodeCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const videoUrl = card.getAttribute('data-video');
+                const iframe = document.createElement('iframe');
+                iframe.setAttribute('width', '560');
+                iframe.setAttribute('height', '315');
+                iframe.setAttribute('src', videoUrl);
+                iframe.setAttribute('frameborder', '0');
+                iframe.setAttribute('allow', 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture');
+                iframe.setAttribute('allowfullscreen', true);
+
+                // Reemplazar la portada por el iframe (video)
+                document.querySelector('.featured-video').innerHTML = ''; // Limpiar video actual
+                document.querySelector('.featured-video').appendChild(iframe); // Añadir nuevo iframe
+            });
+        });
+    </script>
+    </div>
+    </body>     

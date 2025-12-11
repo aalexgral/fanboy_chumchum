@@ -1,0 +1,145 @@
+/* Fondo general estilo cartoon */
+body {
+    background: #f5a535; /* azul suave cartoon */
+    font-family: 'Fredoka One', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    padding-top: 0%; /* ajustado para evitar que el header tape contenido */
+}
+
+/* Header: no se toca nada en el header */
+header {
+  position: fixed; /* fija el header encima de todo */
+  top: 0%; /* separación superior opcional */
+  left: 50%;
+  transform: translateX(-50%); /* centra el header */
+  width: 70%;
+  background: #8E4FFF;
+  border-radius: 0 0 35px 35px;
+  padding: 15px 40px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  z-index: 1000;
+}
+
+/* Contenedor interno del header */
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero>img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    object-fit: cover;
+}
+.hero-contacet>img {
+    display: block;
+    width: 100%;
+    height: 700px;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+/* Logo ajustado */
+.logo {
+    height: 90px;
+    image-rendering: crisp-edges;
+}
+
+/* NAV */
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #ffffff; /* morado estilo Fanboy */
+    transition: 0.2s;
+    font-weight: bold;
+}
+
+/* Hover tipo cartoon */
+.main-nav a:hover {
+    color: #E0FF4F; /* verde radiactivo */
+    transform: scale(1.1);
+}
+
+/* Nueva sección de formulario de contacto */
+
+/* Contenedor principal para el contenido */
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 100px auto; /* Separar contenido del header fijo */
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-size: 1.1em;
+    margin-bottom: 5px;
+    display: block;
+    color: #333;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.submit-btn {
+    background-color: #8E4FFF;
+    color: #fff;
+    padding: 12px 20px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #7a3edb;
+}
+
+#error-message {
+    text-align: center;
+    margin-top: 10px;
+    color: red;
+}
+
+/* Estilo para campos no válidos */
+input:invalid, textarea:invalid {
+    border-color: red;
+}
