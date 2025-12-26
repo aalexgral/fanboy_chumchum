@@ -1,0 +1,449 @@
+/* ================================================================
+   PROJECTE WEB: FANBOY & CHUM CHUM - DAM1
+   ARXIU: styles.css
+   ESTIL: Disseny Còmic Original (PERÒ ESTÀTIC - SENSE ANIMACIONS)
+   ================================================================ */
+
+/* 1. IMPORTACIÓ DE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Luckiest+Guy&family=Fredoka:wght@400;600&display=swap');
+
+/* 2. VARIABLES DE COLOR */
+:root {
+    --lila-fanboy: #8E4FFF;
+    --taronja-chumchum: #f5a535;
+    --verd-radioactiu: #E0FF4F;
+    --vermell-nick: #e62117;
+    --blanc: #ffffff;
+    --negre-comic: #1a1a1a;
+}
+
+/* 3. CONFIGURACIÓ GENERAL */
+* {
+    box-sizing: border-box;
+    /* IMPORTANT: Això mata totes les animacions suaus */
+    transition: none !important; 
+}
+
+body {
+    background-color: var(--taronja-chumchum);
+    background-image: radial-gradient(rgba(0,0,0,0.1) 2px, transparent 2px);
+    background-size: 30px 30px;
+    font-family: 'Fredoka', sans-serif;
+    margin: 0;
+    color: var(--negre-comic);
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    font-family: 'Luckiest Guy', cursive;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; padding: 0; }
+
+/* ================================================================
+   4. HEADER (CAPÇALERA) - SENSE ANIMACIONS
+   ================================================================ */
+.site-header {
+    background: var(--lila-fanboy);
+    border-bottom: 8px solid var(--verd-radioactiu);
+    border-radius: 0 0 40px 40px; /* Recuperem el disseny rodó */
+    padding: 10px 0;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.logo {
+    height: 70px;
+    filter: drop-shadow(4px 4px 0px var(--negre-comic));
+    /* SENSE ROTACIÓ AL PASSAR EL RATOLÍ */
+    transform: none !important;
+}
+
+.main-nav ul { display: flex; gap: 20px; }
+
+.main-nav a {
+    font-family: 'Bangers', cursive;
+    font-size: 1.5rem;
+    color: var(--blanc);
+    text-shadow: 2px 2px 0px var(--negre-comic);
+    padding: 5px 10px;
+}
+
+/* Canvi de color immediat, sense transició */
+.main-nav a:hover, .nav-active {
+    color: var(--verd-radioactiu);
+    transform: none !important; /* Sense saltar */
+}
+
+/* ================================================================
+   5. ELEMENTS COMUNS (BANNERS, OLA, TICKER)
+   ================================================================ */
+.hero-home {
+    position: relative;
+    width: 100%;
+}
+
+.hero-content {
+    z-index: 2;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Títol flotant (l'única animació que es sol deixar, però si no la vols, esborra 'animation') */
+.titulo-flotante {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    text-shadow: 5px 5px 0 var(--lila-fanboy);
+    margin-bottom: 10px;
+    color: white;
+}
+
+/* Ola Decorativa (Wave) */
+.wave-divider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    line-height: 0;
+}
+.wave-divider svg {
+    display: block;
+    width: calc(138% + 1.3px);
+    height: 100px;
+}
+.wave-divider .shape-fill { fill: var(--taronja-chumchum); }
+
+/* Contenidors generals */
+.content-wrapper, .main-container, .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+section {
+    background: var(--blanc);
+    padding: 40px;
+    border-radius: 30px; /* Recuperem cantonades rodones */
+    border: 5px solid var(--negre-comic); /* Recuperem el vorell negre */
+    box-shadow: 10px 10px 0px var(--lila-fanboy); /* Recuperem l'ombra dura */
+    margin-bottom: 60px;
+}
+
+/* Ticker de Notícies (Es mou sol, però no reacciona al ratolí) */
+.news-ticker-container {
+    background: #333;
+    color: var(--verd-radioactiu);
+    overflow: hidden;
+    white-space: nowrap;
+    border-bottom: 4px solid var(--lila-fanboy);
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 8px 0;
+    margin-top: 0%;
+}
+
+.news-ticker {
+    display: inline-block;
+    padding-left: 100%;
+    animation: ticker-move 20s linear infinite;
+}
+@keyframes ticker-move {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-100%, 0, 0); }
+}
+
+/* ================================================================
+   6. PÀGINA MAIN (INICI) - LLOCS I NOTÍCIES
+   ================================================================ */
+.locations-grid, .news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+/* Cartes amb estil Còmic (vorell negre, ombra) però ESTÀTIQUES */
+.location-card, .news-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    border: 3px solid var(--negre-comic);
+    box-shadow: 5px 5px 0 rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+/* KILLER D'ANIMACIONS: Al passar el ratolí NO es mou */
+.location-card:hover, .news-card:hover {
+    transform: none !important; 
+    background: #fff !important; /* No canvia de color */
+    color: inherit !important;
+    box-shadow: 5px 5px 0 rgba(0,0,0,0.1) !important; /* L'ombra no es mou */
+    cursor: default;
+}
+
+.location-card h3, .news-card h3 {
+    margin-top: 0;
+    color: var(--negre-comic) !important; 
+}
+
+.loc-icon { font-size: 3rem; margin-bottom: 10px; }
+
+/* Curiositats */
+.curiosities-list {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 15px;
+    border: 2px dashed #333;
+}
+
+/* Publicitat Falsa */
+.fake-ad {
+    background: repeating-linear-gradient(45deg, var(--verd-radioactiu), var(--verd-radioactiu) 10px, #d1f030 10px, #d1f030 20px);
+    border: 4px solid var(--lila-fanboy);
+    color: #333;
+    text-align: center;
+    padding: 25px;
+    margin: 40px auto;
+    max-width: 600px;
+    box-shadow: 8px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 15px;
+}
+.fake-ad h3 { font-size: 2rem; margin: 0; font-family: 'Bangers'; }
+
+/* ================================================================
+   7. PÀGINA CAPÍTOLS
+   ================================================================ */
+.grid-3x3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.ep-box {
+    background: var(--lila-fanboy); 
+    padding: 10px;
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+    border: 3px solid var(--negre-comic);
+    box-shadow: 5px 5px 0 rgba(0,0,0,0.2);
+    /* ESTÀTIC */
+    transform: none !important;
+}
+
+.ep-box:hover { transform: none !important; }
+
+.ep-box iframe {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 10px;
+    border: 2px solid var(--negre-comic);
+    background-color: black;
+}
+
+.ep-box p { margin-top: 10px; font-weight: bold; }
+
+.video-container {
+    border: 6px solid var(--negre-comic);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 10px 10px 0px var(--verd-radioactiu);
+}
+
+.main-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+    overflow: hidden;
+    border-radius: 15px;
+    border: 3px solid var(--negre-comic);
+    background: white;
+}
+.main-table th { background: var(--negre-comic); color: var(--verd-radioactiu); padding: 15px; }
+.main-table td { padding: 15px; border: 1px solid #ccc; text-align: center; }
+
+/* ================================================================
+   8. PÀGINA PERSONATGES
+   ================================================================ */
+.character-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+    padding-bottom: 40px;
+}
+
+/* Targeta Còmic Original */
+.char-card {
+    background: var(--blanc);
+    border: 4px solid var(--negre-comic); /* Vorell recuperat */
+    border-radius: 20px; /* Cantonades rodones recuperades */
+    overflow: hidden;
+    box-shadow: 10px 10px 0px var(--lila-fanboy); /* Ombra dura recuperada */
+}
+
+/* SENSE MOVIMENT AL HOVER */
+.char-card:hover {
+    transform: none !important; /* No puja ni rota */
+    box-shadow: 10px 10px 0px var(--lila-fanboy) !important; /* L'ombra no canvia */
+    z-index: 1;
+}
+
+.char-img-container {
+    width: 100%;
+    height: 300px;
+    background-color: #eee;
+    border-bottom: 4px solid var(--negre-comic);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.char-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* NO ZOOM */
+    transform: none !important;
+}
+.char-card:hover .char-img { transform: none !important; }
+
+.char-info {
+    padding: 20px;
+    text-align: center;
+    background: radial-gradient(circle, #fff 20%, #f0f0f0 100%);
+}
+.char-info h3 { margin: 0; font-size: 1.8rem; color: var(--negre-comic); }
+.char-info .role { font-family: 'Bangers'; color: var(--taronja-chumchum); font-size: 1.3rem; margin-top: 5px; }
+
+/* ================================================================
+   9. PÀGINA CONTACTE
+   ================================================================ */
+.main-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.form-row { display: flex; flex-direction: column; gap: 5px; }
+
+.main-form input, .main-form select, .main-form textarea {
+    padding: 12px;
+    border: 3px solid var(--negre-comic);
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.submit-btn {
+    background: var(--lila-fanboy);
+    color: white;
+    font-family: 'Bangers';
+    font-size: 2rem;
+    padding: 10px;
+    border: 4px solid var(--negre-comic);
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 6px 6px 0px var(--verd-radioactiu);
+}
+/* Botó estàtic */
+.submit-btn:hover { 
+    transform: none; 
+    box-shadow: 6px 6px 0px var(--verd-radioactiu);
+    opacity: 0.9; /* Petit canvi visual per saber que funciona */
+}
+
+/* ================================================================
+   10. FOOTER I EXTRAS
+   ================================================================ */
+.comic-footer {
+    background-color: var(--verd-radioactiu);
+    padding: 50px 0 30px;
+    margin-top: 0;
+    border-top: 6px solid var(--negre-comic);
+}
+
+.comic-footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 0 20px;
+}
+
+.comic-box {
+    background: var(--blanc);
+    border: 4px solid var(--negre-comic);
+    padding: 20px;
+    width: 300px;
+    box-shadow: 8px 8px 0px rgba(0,0,0,0.8);
+    text-align: left;
+}
+.box-links { background: var(--lila-fanboy); color: white; }
+.box-legal { background: var(--taronja-chumchum); }
+
+.comic-box h3 { font-family: 'Bangers'; font-size: 1.8rem; margin-top: 0; }
+.comic-list a { color: white; font-weight: bold; }
+.legal-buttons a {
+    background: var(--negre-comic); color: white;
+    padding: 5px 10px; border-radius: 5px; font-weight: bold; margin-right: 5px;
+}
+
+/* Alerta Cookies */
+.comic-cookie-alert {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    background: #fff;
+    border: 4px solid var(--negre-comic);
+    padding: 20px;
+    z-index: 9999;
+    box-shadow: 8px 8px 0px var(--lila-fanboy);
+}
+.alert-header { display: flex; justify-content: space-between; font-family: 'Bangers'; font-size: 1.2rem; color: var(--vermell-nick); }
+.accept-btn {
+    width: 100%; background: var(--verd-radioactiu); border: 2px solid var(--negre-comic);
+    padding: 8px; font-family: 'Bangers'; font-size: 1.2rem; cursor: pointer; margin-top: 10px;
+}
+
+/* Personatge Flotant */
+.floating-character {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 130px;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+/* ================================================================
+   11. RESPONSIVE
+   ================================================================ */
+@media (max-width: 900px) {
+    .site-header { width: 100%; border-radius: 0; position: relative; }
+    .header-inner { flex-direction: column; gap: 10px; }
+    .news-ticker-container { margin-top: 0; }
+    .titulo-flotante { font-size: 2.5rem; }
+    .comic-footer-inner { flex-direction: column; align-items: center; }
+    .floating-character { width: 80px; bottom: 10px; right: 10px; }
+}

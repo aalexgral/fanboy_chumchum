@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre el Projecte i Contacte | DAM1</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    
+    <header class="site-header">
+        <div class="header-inner">
+            <img src="content/image-removebg-preview.png" alt="Logo" class="logo">
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="main.html">INICI</a></li>
+                    <li><a href="capitols.html">CAPÍTOLS</a></li>
+                    <li><a href="personajes.html">PERSONATGES</a></li>
+                    <li><a href="contacte.html" class="nav-active">SOBRE NOSALTRES</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-home" style="
+        background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('content/banner/contacte.png'); 
+        background-size: cover; 
+        background-position: center; 
+        height: 100vh; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        text-align: center; 
+        color: white;
+        position: relative;
+        margin-top: 0;">
+        
+        <div class="hero-content">
+            <h1 class="titulo-flotante">CONTACTE I INFO</h1>
+            <p style="font-size: 1.5rem; font-weight: bold; text-shadow: 2px 2px 4px black;">
+                Tot sobre el projecte i com parlar amb nosaltres
+            </p>
+        </div>
+    </section>
+
+    <main class="content-wrapper">
+        <section class="project-details" style="padding: 40px 20px;">
+            <h2>Justificació del Web</h2>
+            <p>Aquest portal web ha estat creat com a pràctica individual per al mòdul de Disseny d'Interfícies Web del cicle DAM1. L'objectiu principal és aplicar els coneixements adquirits sobre HTML5 semàntic, fulls d'estils CSS3 i accessibilitat web.</p>
+            <p>S'han seguit els requeriments de disseny responsive, utilitzant flexbox per a la navegació i el layout general, garantint que la web es pugui visualitzar en qualsevol dispositiu.</p>
+        </section>
+
+        <section class="contact-form-section">
+            <h2>Envia'ns el teu Senyal de Superheroi!</h2>
+            <p>Tens alguna pregunta? Emplea aquest formulari i et respondrem més ràpid que un encanteri d'en Kyle!</p>
+            
+            <form action="#" method="post" class="main-form">
+                <div class="form-row">
+                    <label for="nom">Nom de Superheroi:</label>
+                    <input type="text" id="nom" name="nom" placeholder="Ex: Capità Zap" required>
+                </div>
+                <div class="form-row">
+                    <label for="email">Email de Contacte:</label>
+                    <input type="email" id="email" name="email" placeholder="heroi@galaxyhills.com" required>
+                </div>
+                <div class="form-row">
+                    <label for="asunto">Motiu del missatge:</label>
+                    <select id="asunto" name="asunto">
+                        <option value="fan">Vull ser un heroi</option>
+                        <option value="magic">Pregunta sobre màgia</option>
+                        <option value="frosty">Comanda de Frosty Freezy</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label for="missatge">Missatge secret:</label>
+                    <textarea id="missatge" name="missatge" rows="8" placeholder="Escriu aquí..."></textarea>
+                </div>
+
+                <div class="form-lopd">
+                    <input type="checkbox" id="lopd" name="lopd" required>
+                    <label for="lopd">He llegit i accepto la <a href="privacitat.html">Política de Privadesa</a>.</label>
+                </div>
+
+                <button type="submit" class="submit-btn">ENVIAR SENYAL!</button>
+            </form>
+
+            <div class="social-zone" style="margin-top: 40px; text-align: center;">
+                <h3>Segueix-nos a les Xarxes!</h3>
+                <div class="social-icons" style="font-size: 2rem;">
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="comic-footer">
+        <div class="comic-footer-inner">
+            <div class="comic-box box-brand">
+                <h3>GALAXY HILLS HQ</h3>
+                <p>Web creada sense fer servir màgia. Només pur codi i molt de sucre.</p>
+            </div>
+            <div class="comic-box box-links">
+                <h3>WARP ZONES</h3>
+                <ul class="comic-list">
+                    <li><a href="main.html">➤ BASE CENTRAL</a></li>
+                    <li><a href="capitols.html">➤ ARXIUS DE VÍDEO</a></li>
+                    <li><a href="personajes.html">➤ ALIATS I ENEMICS</a></li>
+                    <li><a href="contacte.html">➤ BÚSTIA</a></li>
+                </ul>
+            </div>
+            <div class="comic-box box-legal">
+                <h3>TOP SECRET (LEGAL)</h3>
+                <div class="legal-buttons">
+                    <a href="privacitat.html" class="legal-btn">PRIVACITAT</a>
+                    <a href="privacitat.html#cookies" class="legal-btn">COOKIES</a>
+                </div>
+                <p class="copyright">&copy; 2025 DAM1 Project</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="comic-cookie-alert" class="comic-cookie-alert">
+        <div class="alert-header">
+            <span>⚠️ ALERTA DE SUCRE!</span>
+            <button onclick="tancarCookies()" class="close-x">X</button>
+        </div>
+        <p>Aquesta web utilitza <strong>cookies</strong> per funcionar millor.</p>
+        <button onclick="tancarCookies()" class="accept-btn">ACCEPTAR MISSIÓ</button>
+    </div>
+
+    <script>
+        function tancarCookies() {
+            const banner = document.getElementById('comic-cookie-alert');
+            banner.style.opacity = '0';
+            banner.style.transform = 'translateY(20px)';
+            setTimeout(() => { banner.style.display = 'none'; }, 500);
+        }
+        
+        document.querySelector('.main-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert("✨ MISSATGE ENVIAT! ✨\n\nGràcies, heroi!");
+            this.reset();
+        });
+    </script>
+</body>
+</html>
